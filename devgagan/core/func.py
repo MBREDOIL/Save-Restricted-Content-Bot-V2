@@ -15,7 +15,7 @@
 import math
 import time , re
 from pyrogram import enums
-from config import CHANNEL_ID, OWNER_ID, CHANNEL_ID_USERNAME 
+from config import CHANNEL_ID, OWNER_ID, CHANNEL_ID_LINK
 from devgagan.core.mongo.plans_db import premium_users
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 import cv2
@@ -35,7 +35,7 @@ async def chk_user(message, user_id):
 
 async def subscribe(app, message):
    update_channel = CHANNEL_ID
-   url = CHANNEL_ID_USERNAME
+   url = CHANNEL_ID_LINK
    if update_channel:
       try:
          user = await app.get_chat_member(update_channel, message.from_user.id)
