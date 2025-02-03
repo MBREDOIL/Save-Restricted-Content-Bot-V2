@@ -422,7 +422,7 @@ async def copy_message_with_chat_id(app, userbot, sender, chat_id, message_id, e
         if result is None:
             await edit.edit("Trying if it is a group...")
             chat_id = (await userbot.get_chat(f"@{chat_id}")).id
-            msg = await userbot.get_messages(chat_id, message_id)
+            msg = await app.get_messages(chat_id, message_id)
 
             if not msg or msg.service or msg.empty:
                 return
