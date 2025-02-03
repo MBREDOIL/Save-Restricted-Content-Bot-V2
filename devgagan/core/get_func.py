@@ -229,7 +229,7 @@ async def get_msg(userbot, sender, edit_id, msg_link, i, message):
             return
             
         # Fetch the target message
-        msg = await userbot.get_messages(chat, msg_id)
+        msg = await app.get_messages(chat, msg_id)
         if not msg or msg.service or msg.empty:
             return
 
