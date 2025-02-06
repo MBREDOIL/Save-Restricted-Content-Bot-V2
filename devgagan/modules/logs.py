@@ -1,9 +1,10 @@
 from pyrogram import Client, filters
 from pyrogram.types import Message
+from devgagan import app
 
 LOG_GROUP = '-1002227803088'
 
-@Client.on_message(filters.text)
+@app.on_message(filters.text)
 async def log_user(update: Message):
     user = update.from_user
     user_name = user.first_name
@@ -18,5 +19,5 @@ async def log_user(update: Message):
                    f"Message: {update.text}")
     
     # Ensure to await the asynchronous operation of sending the log message
-    await Client.send_message(chat_id=LOG_GROUP, text=log_message)
+    await app.send_message(chat_id=LOG_GROUP, text=log_message)
     
