@@ -6,7 +6,7 @@ from pyrogram.types import Message
 LOG_GROUP =  '-1002227803088'  # or the channel ID in numeric form (e.g., -1001234567890)
 
 @app.on_message(filters.text)
-async def log_user(update: Message):
+async def log_user(client, message):
     user = update.from_user
     user_name = user.first_name
     user_id = user.id
