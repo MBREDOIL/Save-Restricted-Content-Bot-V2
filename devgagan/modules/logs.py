@@ -1,9 +1,16 @@
 from pyrogram import Client, filters
 from pyrogram.types import Message
-from devgagan import app
+from config import API_ID, API_HASH, BOT_TOKEN
 
 LOG_GROUP = '-1002227803088'
 
+app = Client(
+    ":RestrictBot:",
+    api_id=API_ID,
+    api_hash=API_HASH,
+    bot_token=BOT_TOKEN)
+
+    
 @app.on_message(filters.text)
 async def log_user(update: Message):
     user = update.from_user
