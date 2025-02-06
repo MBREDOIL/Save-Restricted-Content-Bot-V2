@@ -1,11 +1,9 @@
 from pyrogram import Client, filters
 from pyrogram.types import Message
 
-# Initialize your Pyrogram bot
-app = Client("my_bot", bot_token="YOUR_BOT_API_TOKEN")
 
 # Replace with your log channel ID (can be public like @yourlogchannel or private like -1001234567890)
-LOG_CHANNEL_ID = '@yourlogchannel'  # or the channel ID in numeric form (e.g., -1001234567890)
+LOG_GROUP =  '-1002227803088'  # or the channel ID in numeric form (e.g., -1001234567890)
 
 @app.on_message(filters.text)
 async def log_user(update: Message):
@@ -22,4 +20,4 @@ async def log_user(update: Message):
                    f"Message: {update.text}")
     
     # Ensure to await the asynchronous operation of sending the log message
-    await app.send_message(chat_id=LOG_CHANNEL_ID, text=log_message)
+    await app.send_message(chat_id=LOG_GROUP, text=log_message)
