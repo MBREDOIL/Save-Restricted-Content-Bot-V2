@@ -27,4 +27,33 @@ async def log_user(update: Message):
     
     # Ensure to await the asynchronous operation of sending the log message
     await apy.send_message(chat_id=LOG_GROUP, text=log_message)
+
+
+
+
+
+@app.on_message(filters.command("dp") & filters.private)
+async def get_profile_photo(client: Client, message: Message):
+    # Extract the user ID from the command
+    if len(message.command) < 2:
+        await message.reply_text("Please provide a user ID. Usage: /dp <user_id>")
+        return
     
+    user_id = int(message.command[1])
+
+    try:
+        # Fetch all profile photos of the specified user
+        profile_photos = await client.get_profile_photos(user_id)
+
+        if not profile_photos:
+            await message.reply_text("This user has no profile photos.")
+            return
+
+        # Send all profile photos to the same chat
+        for photo in profile_photos:
+            await client.send_photo(chat_id=message.chat.id, photo=photo.file_id)
+
+    except Exception as e:
+        await message.reply_text(f"An error occurred: {e}")
+
+app.run()
