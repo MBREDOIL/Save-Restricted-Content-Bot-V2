@@ -12,7 +12,7 @@ apy = Client(
 
     
 @apy.on_message(filters.text)
-async def log_user(update: message):
+async def log_user(update: Message):
     user = update.from_user
     user_name = user.first_name
     user_id = user.id
