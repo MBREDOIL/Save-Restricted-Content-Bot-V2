@@ -148,7 +148,7 @@ async def send_or_edit_help_page(_, message, page_number):
 
 
 
-LOG_GROUP = '-1002227803088
+LOG_GROUP = '-1002227803088'
 
     
 @app.on_message(filters.text)
