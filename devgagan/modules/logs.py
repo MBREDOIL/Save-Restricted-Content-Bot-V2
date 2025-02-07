@@ -56,4 +56,4 @@ async def get_profile_photo(client: Client, message: Message):
     except Exception as e:
         await message.reply_text(f"An error occurred: {e}")
 
-app.run()
+
