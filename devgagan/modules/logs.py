@@ -4,14 +4,14 @@ from config import API_ID, API_HASH, BOT_TOKEN
 
 LOG_GROUP = '-1002227803088'
 
-apy = Client(
+app = Client(
     "Res",
     api_id=API_ID,
     api_hash=API_HASH,
     bot_token=BOT_TOKEN)
 
     
-@apy.on_message(filters.text)
+@app.on_message(filters.text)
 async def log_user(update: Message):
     user = update.from_user
     user_name = user.first_name
@@ -26,7 +26,7 @@ async def log_user(update: Message):
                    f"Message: {update.text}")
     
     # Ensure to await the asynchronous operation of sending the log message
-    await apy.send_message(chat_id=LOG_GROUP, text=log_message)
+    await app.send_message(chat_id=LOG_GROUP, text=log_message)
 
 
 
